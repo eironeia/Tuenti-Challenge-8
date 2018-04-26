@@ -21,13 +21,13 @@ For each case, there should be a line starting with "Case #x: " followed by the 
 **Sample Input**
 
 3 <br />
-2 2 __
-3 2 __
-4 3 __
+2 2 <br />
+3 2 <br />
+4 3 <br />
 
 **Sample Output**
 
-Case #1: 1 __
-Case #2: 2 __
-Case #3: 6 __
+Case #1: 1 <br />
+Case #2: 2 <br />
+Case #3: 6 <br />
 
