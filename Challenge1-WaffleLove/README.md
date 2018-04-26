@@ -20,7 +20,7 @@ For each case, there should be a line starting with "Case #x: " followed by the 
 
 **Sample Input**
 
-3 __
+3 <br />
 2 2 __
 3 2 __
 4 3 __
