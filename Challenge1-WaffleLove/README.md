@@ -16,7 +16,9 @@ For each case, there should be a line starting with "Case #x: " followed by the 
 
 **Limits**
 
-1 ≤ **C** ≤ 100 2 ≤ **N**, **M** ≤ 10000 
+1 ≤ **C** ≤ 100 <br />
+2 ≤ **N** <br />
+**M** ≤ 10000 <br />
 
 **Sample Input**
 
