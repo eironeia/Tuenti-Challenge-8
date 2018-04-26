@@ -2,6 +2,18 @@ import UIKit
 
 /* FUNCTIONS */
 
+func personalPow(number: BigInt, exponent: BigInt) -> BigInt {
+    if exponent == 0 {
+        return 1
+    }
+    var result: BigInt = number
+    for _ in 1..<exponent {
+        result *= number
+    }
+    return result
+}
+
+
 
 func getArrayWithPermutations(arraySize: Int) ->  [[Int]] {
     let size = arraySize - 1
@@ -33,16 +45,16 @@ func getArrayWithPermutations(arraySize: Int) ->  [[Int]] {
 }
 
 
-func getValueOnBaseN(number: [Int], base: Int) -> Double {
+func getValueOnBaseN(number: [Int], base: Int) -> BigInt {
     let numbersCount = number.count
     
-    var result: Double = 0
+    var result: BigInt = 0
     var index: Int = 0
     
     for i in (0...numbersCount - 1).reversed() {
         let number = number[i]
         if number != 0 {
-            let numberInBase = Double((pow(Decimal(base), index) as NSDecimalNumber))*Double(number)
+            let numberInBase = personalPow(number: BigInt(base), exponent: BigInt(index))*BigInt(number)
             result += numberInBase
         }
         index += 1
@@ -57,14 +69,14 @@ func getValueOnBaseN(number: [Int], base: Int) -> Double {
 func getHiddenNumbers(inputValues: [String]) {
     
     var caseNumber: Int = 1
-
+    
     for input in inputValues {
-
+        
         let arrayWithNumbers: [[Int]] = getArrayWithPermutations(arraySize: input.count)
-
-        var minValue: Double!
-        var maxValue: Double!
-
+        
+        var minValue: BigInt!
+        var maxValue: BigInt!
+        
         for permutation in arrayWithNumbers {
             let value = getValueOnBaseN(number: permutation, base: input.count)
             if arrayWithNumbers.first == permutation {
@@ -76,16 +88,11 @@ func getHiddenNumbers(inputValues: [String]) {
                 if minValue > value { minValue = value }
             }
         }
-
-        let numberFormatter = NumberFormatter()
-        numberFormatter.numberStyle = .decimal
-        numberFormatter.maximumFractionDigits = 100
-        let string = numberFormatter.string(for: maxValue - minValue)!
         
-        print("Case #\(caseNumber): \(string.replacingOccurrences(of: ",", with: ""))")
+        print("Case #\(caseNumber): \(maxValue - minValue)")
         caseNumber += 1
     }
 }
 
-getHiddenNumbers(inputValues: ["cojhn", "qkflsczuantb", "qswagdzcpxe", "dxwupsqhknfciozgbrtjma", "wjxgnyzvbakimqfdt", "qmyf", "ma", "mvongxtqdypsbfjzlhruc", "bfujhpnxdgyilowcrqkm", "mpuzgkwe", "vd", "bxdpcirwkvanzmefogsyj", "alejmqt", "urmnskcjhl", "ogqmnte", "mqoldkhwfryjutpv", "nupolktzdmsv", "kvxoecmgnrzuayptjidbwl", "cyafdkgivrxpeujhozbm", "htfdxycnkserjiz", "kxypedsbvhzgfuoqi", "htlfusmrvadckgenxiwbzqj", "qcjktbhywnoxslrfauzdepmvg", "obewgiahkctxmlpsjfnv", "fickmtolqndzwvpasreuxb", "hxptymkzgbwanvcjedfqoiursl", "kogxc", "sgomyxhda", "lkspxtcweziybaqovhurjfgd", "xiokcnydbmjqvu", "yxkdanuzwmlerihjcvqpfstb", "yneltcsbvwqukdagfjmzx", "ofnhgquxiyvwck", "ywxzmuvalbscdk", "sdp", "kozubhaepcw", "nbiqztdj", "saonctfgjdbkqu", "yqomxjedrztbwislvuanphcf", "lchrn", "hmovs", "dfpxhelagvcmoyzbukr", "bwmfn", "uv", "ukbvzfgsnlhxe", "rpfhaxoisblezqwydgcuk", "cmnjgh", "sjx", "ivn", "kxqwvrlsthfjbngcd", "fdx", "qkaublyrvpdx", "qzcmy", "gpjkilhxnou", "lxocdniryftqea", "fsro", "zmajgdihurkoblscnwpqfvxye", "ewimuqoxrtcbgf", "hqcvrbkmgeindyfszjupaolt", "rjstoynlmuvhgebqcpfx", "ghymxufkzrdnolitvwep", "psvwmuxthdoejcbgkqif", "fduvzonmhiglrbcqpetjkx", "bnxlckrjhvowmzid", "eqy", "uwg", "ghitqjnslvcpuzwrxbyod", "irkwajhnfpmezdgsvutlcoq", "ql", "vclwinjbteuszfmydokraxpqh", "swocbamnhvkuxltrip", "dgjyup", "ewudxyjlrbs", "xmkiawcrfjvhg", "rewfybacgpdhvkmqiun", "nizrgevt", "edxqvj", "rzgbp", "kxehpdfya", "iasdkolztwfgm", "lgijk", "gyoxqfrhs", "agjdluecbohtwqkmxrfpiv", "zjgtlyuiwnvkbefrpax", "dc", "hckpivxoarlsbujfeywgmqtd", "bwun", "xsiyt", "vwygmtho", "kjidpnqsmxahglocbztfeuwyr", "ialwcbtexghnqmkrdz", "qihwso", "mnsebatdxzol", "xifhogvmbndztueqpalsyj", "ry", "emvdqkflowijgytcxzaubsr", "jhbysenmzoqvluxfpcdw", "lipdnmqecousxfrjv", "xdzerwgqf", "ctubdnxerwiplqgfovahzjyksm"])
+getHiddenNumbers(inputValues: ["jwfcpmdenqbvxorizhulgksat", "hjvozn", "uiobk", "plwuhbfrtkes", "zqox", "jfvuthnagcsimrokywd", "tsfruqajzexckhgynpdobvlm", "qbcirnuvtwkexoj", "gtpzraysxmcfkvhnb", "nipfhzbwuvrecmgtaqlkoxy", "efodlnhtiqarbmkwxczj", "wormfksluxtzcydqaijg", "oljintegfdkbumqrxhspazvw", "dxucftlqjvohmwsb", "hkmiduavoxyec", "qlktdavurpiso", "ktbucrvdgwynqszipf", "xaztiblwqskmhdfyunvr", "pqtxbonkilsmea", "ws", "zwxjcy", "ulvegwyrxiqtcskoapzmjnhdbf", "pdtohxgniclryve", "xsha", "xujmwbeslgitzdarycfqv", "qsfwivcg", "nazmykvulhqfcib", "bshinyzjmektvcg", "oitcjxauylergvskhbznwq", "auqhzmrtlo", "yuwarfjmptcviqkdzel", "gjkpxebnz", "ozvys", "tkbidurmanoyhvxqj", "rcxhedbnlgfak", "ojbkdqwnivmzet", "tixakmhqjcsfpedbzrwn", "qkephgbczxfsranvt", "cnwpzjlxbaqhryeugdmtikfovs", "lmkaxpvbyijz", "cdyoigmxutasbfvkrlwehz", "tmer", "eudbozjlchisqgpknyvmtafwr", "zawrnmkcbdgfhpluqet", "mpsut", "mxzcygwnrpuaotsdlkivbheqf", "bwuvymctjexzdrfs", "wbvhgmcflxzn", "teslkhzmnjgibfwpcqduyvaxor", "ewxz", "pwvxntoai", "elwhtyrvqfmpgz", "vfiydkar", "fnhyaiwtjoxgembsrupzdlqcvk", "cljxtyrdo", "vlrbwzptfisk", "pqntureljhvikdmbxg", "dkvnjwsgxqrulz", "mqhyijz", "updvi", "hbdzmfnxuwqj", "sdykl", "pukzqniywvolhgcdebajstr", "xvqgbnshyupkwmoizdjlre", "csuvodngkwiahl", "wq", "ljnbtkiqfgczsd", "qkwlunyxevfjoaszcmi", "ofrzsnqukgvwe", "szmrntyvigcawqopxbhejlu", "ce", "qvnmbityswzpxfelcohak", "gnfrhcy", "ftwzblayuxijvdonc", "gypfiljatcudnm", "nubvfqhxzrimogjkeslapytdw", "fjmpxlhkez", "mzpgijtqrbfseo", "ulrdqw", "yozrhe", "ubmavqfnjodzhpx", "wgylvnj", "fovchzbiemyxrgqjawdlpns", "beozunygwihlratscmfjkqd", "yewzxbmnthapqv", "ezjmlscdwikqfgupx", "alqeo", "nphegx", "cwuylarfqe", "ngmuosltaejxckqhvbyrdfizwp", "eslbuacxyijqtf", "dvetmwualypksczgqjrobhnfx", "cyhqsfdrxpujzgwmvn", "eirayhztqfbmskc", "yfagtxihukpjnsodevblzwq", "ivbxc", "sgdreauvbwz", "hxcqonkefgayv", "dcogtmhv", "cwdihyenflzskrqatbgp"])
 
