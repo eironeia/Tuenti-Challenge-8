@@ -6,15 +6,15 @@ Your store, 20 Waffles, is famous for having the most beautiful and delicious wa
 
 Given each waffle’s number of vertical and horizontal lines, how many holes does it have?
 
-###Input
+**Input**
 
 The first line has an integer C, which is the number of cases for the problem. Then C lines follow and each one has two integers N and M, which are the number of vertical and horizontal lines on the waffle.
 
-###Output
+**Output**
 
 For each case, there should be a line starting with "Case #x: " followed by the number of holes in the waffle.
 
-###Limits
+**Limits**
 
 1 ≤ **C** ≤ 100 2 ≤ **N**, **M** ≤ 10000 
 
