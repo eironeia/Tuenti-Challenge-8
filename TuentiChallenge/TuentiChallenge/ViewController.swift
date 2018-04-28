@@ -8,125 +8,155 @@
 
 import UIKit
 import Foundation
+import BigInt
 
-/* EXTENSIONS */
-
-extension String {
-    
-    func generateArrayWithNumbers() -> [Int] {
-        let maxNumber = self.count - 1
-        var result: [Int] = []
-        for i in 0...maxNumber {
-            result += [i]
-        }
-        return result
-    }
-}
 
 
 class ViewController: UIViewController {
 
+    var simplification: Dictionary<String, String> = ["Ab": "G#",
+        "Bb": "A#",
+        "Cb": "B",
+        "Db": "C#",
+        "Eb": "D#",
+        "Fb": "E",
+        "Gb": "F#",
+        "B#": "C",
+        "E#": "F"]
+
+    
+    var scales: Dictionary<String, [String]> = ["MA": ["A", "B", "C#", "D", "E", "F#", "G#"],
+                  "MA#": ["A#", "C", "D", "D#", "F", "G", "A"],
+                  "MB": ["B", "C#", "D#", "E", "F#", "G#", "A#"],
+                  "MC": ["C", "D", "E", "F", "G", "A", "B"],
+                  "MC#": ["C#", "D#", "F", "F#", "G#", "A#", "C"],
+                  "MD": ["D", "E", "F#", "G", "A", "B", "C#"],
+                  "MD#": ["D#", "F", "G", "G#", "A#", "C", "D"],
+                  "ME": ["E", "F#", "G#", "A", "B", "C#", "D#"],
+                  "MF": ["F", "G", "A", "A#", "C", "D", "E"],
+                  "MF#": ["F#", "G#", "A#", "B", "C#", "D#", "F"],
+                  "MG": ["G", "A", "B", "C", "D", "E", "F#"],
+                  "MG#": ["G#", "A#", "C", "C#", "D#", "F", "G"],
+                  "mA": ["A", "B", "C", "D", "E", "F", "G"],
+                  "mA#": ["A#", "C", "C#", "D#", "F", "F#", "G#"],
+                  "mB": ["B", "C#", "D", "E", "F#", "G", "A"],
+                  "mC": ["C", "D", "D#", "F", "G", "G#", "A#"],
+                  "mC#": ["C#", "D#", "E", "F#", "G#", "A", "B"],
+                  "mD": ["D", "E", "F", "G", "A", "A#", "C"],
+                  "mD#": ["D#", "F", "F#", "G#", "A#", "B", "C#"],
+                  "mE": ["E", "F#", "G", "A", "B", "C", "D"],
+                  "mF": ["F", "G", "G#", "A#", "C", "C#", "D#"],
+                  "mF#": ["F#", "G#", "A", "B", "C#", "D", "E"],
+                  "mG": ["G", "A", "A#", "C", "D", "D#", "F"],
+                  "mG#": ["G#", "A#", "B", "C#", "D#", "E", "F#"]]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        getHiddenNumbers(inputValues: ["qkflsczuantb"])
-        self.view.backgroundColor = UIColor.green
-    }
-  
-    
-    func permute<C: Collection>(items: C) -> [[C.Iterator.Element]] {
-        var scratch = Array(items) // This is a scratch space for Heap's algorithm
-        var result: [[C.Iterator.Element]] = [] // This will accumulate our result
-        
-        // Heap's algorithm
-        func heap(_ n: Int) {
-            if n == 1 {
-                result.append(scratch)
-                return
-            }
-            
-            for i in 0..<n-1 {
-                heap(n-1)
-                let j = (n%2 == 1) ? 0 : i
-                scratch.swapAt(j, n-1)
-            }
-            heap(n-1)
-        }
-        
-        // Let's get started
-        heap(scratch.count)
-        
-        // And return the result we built up
-        return result
-    }
-    
-   
-    
-    func getValueOnBaseN(number: [Int], base: Int) -> Int {
-        let numbersCount = number.count
-        
-        var result: Int = 0
+        let testCases = readInput()
+        var caseNumber: Int = 1
         var index: Int = 0
-        
-        for i in (0...numbersCount - 1).reversed() {
-            let number = number[i]
-            if number != 0 {
-                let numberInBase = ((pow(Decimal(base), index) as NSDecimalNumber).intValue)*number
-                result += numberInBase
+        for testCase in testCases {
+            if Int(testCase) == 0 {
+                print("Case #\(caseNumber): MA MA# MB MC MC# MD MD# ME MF MF# MG MG# mA mA# mB mC mC# mD mD# mE mF mF# mG mG#")
+                index += 1
+                caseNumber += 1
+            }
+            else if index % 2 != 0 {
+                let result = solve(inputNotes: testCase)
+                print("Case #\(caseNumber): \(result.dropLast())")
+                caseNumber += 1
             }
             index += 1
         }
         
+        self.view.backgroundColor = UIColor.green
+    }
+    
+    func readInput() -> [String] {
+        if let path = Bundle.main.path(forResource: "fileInput", ofType: "txt") {
+            do {
+                let data = try String(contentsOfFile: path, encoding: .utf8)
+                let myStrings = data.components(separatedBy: .newlines)
+                return myStrings
+            } catch {
+                print(error)
+                return []
+            }
+        }
+        return []
+    }
+  
+    func solve(inputNotes: String) -> String {
+        
+        let n = inputNotes.count
+        //lines =  read inputfile
+        //result = processLines just prepare the inputfile
+        var inputNotesArray: [String] = []
+        
+        inputNotes.split(separator: " ").forEach { (substring) in
+            inputNotesArray.append("\(substring)")
+        }
+
+        return self.processLines(n: n, notes: inputNotesArray)
+    }
+    
+    func processLines(n: Int, notes: [String]) -> String {
+        
+        var notesScales: [String] = Array(scales.keys)
+        
+        switch n {
+        case 0:
+            break
+        default:
+            let allNotesSimplified: [String] = getNotesSimplified(notes: notes)
+            let filteredScales: Dictionary<String, [String]> = getScales(notesSimplified: allNotesSimplified)
+            if filteredScales.count == 0 {
+                return "None "
+            }
+            else {
+                notesScales = Array(filteredScales.keys).sorted()
+            }
+        }
+        
+        var result: String = ""
+        for scale in notesScales {
+            result += (scale + " ")
+        }
         return result
     }
     
-    
-    /* CODE */
-    
-    func getHiddenNumbers(inputValues: [String]) {
+    func getNotesSimplified(notes: [String]) -> [String] {
         
-        var caseNumber: Int = 1
-        
-        for input in inputValues {
-            
-            let arrayWithNumbers = input.generateArrayWithNumbers()
-            
-            var arrayPermuted = permute(items: arrayWithNumbers)
-            
-            arrayPermuted = arrayPermuted.filter { (value) -> Bool in
-                return value.first != 0
-            }
-            
-            var minValue: Int = 0
-            var maxValue: Int = 0
-            
-            for permutation in arrayPermuted {
-                let value = getValueOnBaseN(number: permutation, base: input.count)
-                print(permutation, value)
-                if arrayPermuted.first == permutation {
-                    minValue = value
-                    maxValue = value
-                }
-                else {
-                    if maxValue < value { maxValue = value }
-                    if minValue > value { minValue = value }
+        let notesSimplified = notes.map { (note) -> String in
+            for (unused, used) in simplification {
+                if note == unused {
+                    return used
                 }
             }
-            
-            print("Case #\(caseNumber): \(maxValue - minValue)")
-            caseNumber += 1
+            return note
         }
+        
+        return notesSimplified
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
+    func getScales(notesSimplified: [String]) -> Dictionary<String, [String]> {
+        
+        //Enum.filter(@scales, fn {_name_scale, notes} -> Enum.count(all_notes_simplified, fn note -> Enum.member?(notes, note) end) == Enum.count(all_notes_simplified) end)
+        
+        var filteredScales: Dictionary<String, [String]> = [:]
+        for (nameScale, notes) in scales {
+            var numOfMemberNotes = 0
+            for note in notesSimplified {
+                if notes.contains(note) { numOfMemberNotes += 1 }
+            }
+            if numOfMemberNotes == notesSimplified.count {
+                filteredScales[nameScale] = notes
+            }
+        }
+        
+        return filteredScales
+    }
     
     
     

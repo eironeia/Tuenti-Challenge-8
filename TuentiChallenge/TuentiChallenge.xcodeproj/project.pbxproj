@@ -7,15 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C3B798A2094A58700FEAC01 /* fileInput.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9C3B79892094A58700FEAC01 /* fileInput.txt */; };
 		9C611F8F2090ED54004B3EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */; };
 		9C611F912090ED54004B3EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611F902090ED54004B3EB0 /* ViewController.swift */; };
 		9C611F942090ED54004B3EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C611F922090ED54004B3EB0 /* Main.storyboard */; };
 		9C611F962090ED56004B3EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C611F952090ED56004B3EB0 /* Assets.xcassets */; };
 		9C611F992090ED56004B3EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C611F972090ED56004B3EB0 /* LaunchScreen.storyboard */; };
+		B6C4E349BABDE0317B95EB73 /* Pods_TuentiChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28C3ABB849514C7AD8E0C124 /* Pods_TuentiChallenge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25B480C6E97FFD9BBB0633BF /* Pods-TuentiChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuentiChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuentiChallenge/Pods-TuentiChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		28C3ABB849514C7AD8E0C124 /* Pods_TuentiChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuentiChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0D9F862090EFA200F07DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/modifyTests.swift; sourceTree = "<group>"; };
+		9C3B79892094A58700FEAC01 /* fileInput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fileInput.txt; path = "../../Challenge3-Scales/fileInput.txt"; sourceTree = "<group>"; };
 		9C611F8B2090ED54004B3EB0 /* TuentiChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuentiChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C611F902090ED54004B3EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -23,6 +28,7 @@
 		9C611F952090ED56004B3EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C611F982090ED56004B3EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9C611F9A2090ED56004B3EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DB04C3794368A6330EF62AA /* Pods-TuentiChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuentiChallenge.release.xcconfig"; path = "Pods/Target Support Files/Pods-TuentiChallenge/Pods-TuentiChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6C4E349BABDE0317B95EB73 /* Pods_TuentiChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +48,8 @@
 			children = (
 				9C611F8D2090ED54004B3EB0 /* TuentiChallenge */,
 				9C611F8C2090ED54004B3EB0 /* Products */,
+				9DEFD1D5CDF753CDBFA89AD3 /* Pods */,
+				9CC38492F0A6FEB72D73BAAA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -57,6 +66,7 @@
 			children = (
 				9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */,
 				9C611F902090ED54004B3EB0 /* ViewController.swift */,
+				9C3B79892094A58700FEAC01 /* fileInput.txt */,
 				9C611F922090ED54004B3EB0 /* Main.storyboard */,
 				9C611F952090ED56004B3EB0 /* Assets.xcassets */,
 				9C611F972090ED56004B3EB0 /* LaunchScreen.storyboard */,
@@ -66,6 +76,23 @@
 			path = TuentiChallenge;
 			sourceTree = "<group>";
 		};
+		9CC38492F0A6FEB72D73BAAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				28C3ABB849514C7AD8E0C124 /* Pods_TuentiChallenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9DEFD1D5CDF753CDBFA89AD3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25B480C6E97FFD9BBB0633BF /* Pods-TuentiChallenge.debug.xcconfig */,
+				9DB04C3794368A6330EF62AA /* Pods-TuentiChallenge.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -73,9 +100,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9C611F9D2090ED56004B3EB0 /* Build configuration list for PBXNativeTarget "TuentiChallenge" */;
 			buildPhases = (
+				0E574B4488CFD327E1C6BF02 /* [CP] Check Pods Manifest.lock */,
 				9C611F872090ED54004B3EB0 /* Sources */,
 				9C611F882090ED54004B3EB0 /* Frameworks */,
 				9C611F892090ED54004B3EB0 /* Resources */,
+				A08FE505DB104DE704B38186 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -127,10 +156,52 @@
 				9C611F992090ED56004B3EB0 /* LaunchScreen.storyboard in Resources */,
 				9C611F962090ED56004B3EB0 /* Assets.xcassets in Resources */,
 				9C611F942090ED54004B3EB0 /* Main.storyboard in Resources */,
+				9C3B798A2094A58700FEAC01 /* fileInput.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0E574B4488CFD327E1C6BF02 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TuentiChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A08FE505DB104DE704B38186 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-TuentiChallenge/Pods-TuentiChallenge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BigInt/BigInt.framework",
+				"${BUILT_PRODUCTS_DIR}/SipHash/SipHash.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BigInt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SipHash.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TuentiChallenge/Pods-TuentiChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		9C611F872090ED54004B3EB0 /* Sources */ = {
@@ -288,6 +359,7 @@
 		};
 		9C611F9E2090ED56004B3EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25B480C6E97FFD9BBB0633BF /* Pods-TuentiChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -306,6 +378,7 @@
 		};
 		9C611F9F2090ED56004B3EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9DB04C3794368A6330EF62AA /* Pods-TuentiChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
