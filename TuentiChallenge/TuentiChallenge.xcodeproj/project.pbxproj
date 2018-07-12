@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9C3B798A2094A58700FEAC01 /* fileInput.txt in Resources */ = {isa = PBXBuildFile; fileRef = 9C3B79892094A58700FEAC01 /* fileInput.txt */; };
 		9C611F8F2090ED54004B3EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */; };
 		9C611F912090ED54004B3EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C611F902090ED54004B3EB0 /* ViewController.swift */; };
 		9C611F942090ED54004B3EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9C611F922090ED54004B3EB0 /* Main.storyboard */; };
@@ -20,7 +19,6 @@
 		25B480C6E97FFD9BBB0633BF /* Pods-TuentiChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TuentiChallenge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TuentiChallenge/Pods-TuentiChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		28C3ABB849514C7AD8E0C124 /* Pods_TuentiChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TuentiChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C0D9F862090EFA200F07DEC /* Base */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Base; path = Base.lproj/modifyTests.swift; sourceTree = "<group>"; };
-		9C3B79892094A58700FEAC01 /* fileInput.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = fileInput.txt; path = "../../Challenge3-Scales/fileInput.txt"; sourceTree = "<group>"; };
 		9C611F8B2090ED54004B3EB0 /* TuentiChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TuentiChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9C611F902090ED54004B3EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +64,6 @@
 			children = (
 				9C611F8E2090ED54004B3EB0 /* AppDelegate.swift */,
 				9C611F902090ED54004B3EB0 /* ViewController.swift */,
-				9C3B79892094A58700FEAC01 /* fileInput.txt */,
 				9C611F922090ED54004B3EB0 /* Main.storyboard */,
 				9C611F952090ED56004B3EB0 /* Assets.xcassets */,
 				9C611F972090ED56004B3EB0 /* LaunchScreen.storyboard */,
@@ -156,7 +153,6 @@
 				9C611F992090ED56004B3EB0 /* LaunchScreen.storyboard in Resources */,
 				9C611F962090ED56004B3EB0 /* Assets.xcassets in Resources */,
 				9C611F942090ED54004B3EB0 /* Main.storyboard in Resources */,
-				9C3B798A2094A58700FEAC01 /* fileInput.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
